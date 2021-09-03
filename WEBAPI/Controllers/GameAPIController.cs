@@ -10,7 +10,6 @@ namespace WEBAPI.Controllers
     public class GameAPIController : ControllerBase
     {
         Class.Repository<Game> repository = new Class.Repository<Game>();
-
         [HttpGet]
         public async Task<List<Game>> Get()
         {
@@ -22,8 +21,6 @@ namespace WEBAPI.Controllers
         {
             return repository.ReadAsync(name);
         }
-
-        // POST api/<CRUDAPIController>
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Game x)
         {
@@ -37,8 +34,6 @@ namespace WEBAPI.Controllers
                 return StatusCode(400);
             }
         }
-
-        // PUT api/<CRUDAPIController>/5
         [HttpPut]
         public async Task<IActionResult> Put([FromBody] Game x)
         {
@@ -52,8 +47,6 @@ namespace WEBAPI.Controllers
                 return StatusCode(400);
             }
         }
-
-        // DELETE api/<CRUDAPIController>/5
         [HttpDelete("{id}")]
         public async Task<bool> Delete(int id)
         {

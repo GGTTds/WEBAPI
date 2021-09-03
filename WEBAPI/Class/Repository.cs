@@ -8,11 +8,6 @@ namespace WEBAPI.Class
 {
     public class Repository<ClassBD> : Interface.IRepository<ClassBD> where ClassBD : Base
     {
-        //private readonly GemeStoreContext _CON;
-        //public Repository()
-        //{
-        //    _CON = new GemeStoreContext();
-        //}
         public async Task<bool> CreateASync(ClassBD x)
         {
             try
@@ -52,7 +47,6 @@ namespace WEBAPI.Class
                 {
                     var t = await v.StyleFoGames.Where(p => p.Name.Equals(i)).FirstOrDefaultAsync(); // получаю список id жанра
                     var y = await v.Keys.Where(p => p.Idsyle.Equals(t.Id)).ToListAsync(); // выбираю id игр этого жанра
-                    //var s = v.Games.Include(p => y.FirstOrDefault()).Where(p => p.Id.Equals(y.i).ToListAsync();
                     List<Game> GF = new List<Game>();
                     foreach ( var ty in y)
                     {
